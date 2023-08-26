@@ -10,6 +10,23 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Fixed an unintended API change in release 0.26.3, due to the upgrade of the
   bitflags dependency.
   ([#2117](https://github.com/nix-rust/nix/pull/2117))
+- The MSRV is now 1.65
+  ([#1862](https://github.com/nix-rust/nix/pull/1862))
+  ([#2104](https://github.com/nix-rust/nix/pull/2104))
+- The epoll interface now uses a type.
+  ([#1882](https://github.com/nix-rust/nix/pull/1882))
+- With I/O-safe type applied in `pty::OpenptyResult` and `pty::ForkptyResult`,
+  users no longer need to manually close the file descriptors in these types.
+  ([#1921](https://github.com/nix-rust/nix/pull/1921))
+- `sys::event::{kevent, kevent_ts}` are deprecated in favor of
+  `sys::kevent::Kqueue::kevent`, and `sys::event::kqueue` is deprecated in
+  favor of `sys::kevent::Kqueue::new`.
+  ([#1943](https://github.com/nix-rust/nix/pull/1943))
+- `nix::socket` and `nix::select` are now available on Redox.
+  ([#2012](https://github.com/nix-rust/nix/pull/2012))
+- All features have been removed from the default set. Users will need to specify
+  which features they depend on in their Cargo.toml.
+  ([#2091](https://github.com/nix-rust/nix/pull/2091))
 
 ## [0.26.3] - 2023-08-27
 
